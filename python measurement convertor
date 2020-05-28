@@ -1,0 +1,73 @@
+def welcome():
+    print('Welcome to the measurement convertor.\n')
+welcome()
+
+convert = True
+while convert:
+    def measurement():
+        which = input('Enter a measurement type. cm/feet/yards: ')
+        while which != 'cm' and which != 'feet' and which != 'yards':
+            which = input('Enter a measurement type. cm/feet/yards: ')
+        return which
+
+    def measurement_2():
+        which_2 = input('Enter what to convert to, feet/cm/yards: ')
+        while which_2 != 'cm' and which_2 != 'feet' and which_2 != 'yards':
+            which_2 = input('Enter what to convert to, cm/feet/yards: ')
+        return which_2
+
+    def display_cm_to_feet(start):
+        converted =start / 30.48
+        print(format(converted, '.2f'))
+
+    def display_feet_to_cm(start):
+        converted = start * 30.48
+        print(format(converted, '.2f'))
+
+    def display_cm_to_yards(start):
+        converted = start / 91.44
+        print(format(converted, '.2f'))
+
+    def display_feet_to_yards(start):
+        converted = start / 3
+        print(format(converted, '.2f'))
+
+    def display_yards_to_cm(start):
+        converted = start * 91.44
+        print(format(converted, '.2f'))
+
+    def display_yards_to_feet(start):
+        converted = start * 3
+        print(format(converted, '.2f'))
+    def more():
+        ask=(input('Would you like to convert another measurement? y/n'))
+        while ask != 'y' and ask != 'n':
+            ask=(input('Would you like to convert another measurement? y/n'))
+            if ask == 'n':
+                print('Goodbye')
+                convert =True
+            elif ask == 'y':
+                convert = True
+        
+    which =measurement()
+    which_2=measurement_2()
+    
+    start= float(input('Enter a value to convert: '))
+
+    if which == 'cm' and which_2 =='feet':
+        display_cm_to_feet(start)
+
+    elif which == 'feet' and which_2 == 'cm':
+        display_feet_to_cm(start)
+
+    elif which == 'cm' and which_2 == 'yards':
+        display_cm_to_yards(start)
+        
+    elif which == 'feet' and which_2 == 'yards':
+        display_feet_to_yards(start)
+
+    elif which == 'yards' and which_2 == 'cm':
+        display_yards_to_feet(start)
+
+    elif which == 'yards' and which_2 == 'feet':
+        display_yards_to_feet(start)
